@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SAT Question Bank</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="bluebook-header">
+        <div class="header-left">
+          <p class="eyebrow">Section 1, Module 2</p>
+          <h1>Reading and Writing</h1>
+          <button class="directions-button" type="button">Directions</button>
+        </div>
+        <div class="timer-block" aria-label="Practice timer">
+          <strong>5:27</strong>
+          <button type="button">Hide</button>
+        </div>
+        <div class="header-actions" aria-label="Bluebook style actions">
+          <span>Highlights &amp; Notes</span>
+          <span>More</span>
+        </div>
+      </header>
+
+      <div class="practice-strip">THIS IS A PRACTICE QUESTION BANK</div>
+
+      <main class="layout">
+        <aside class="question-bank" aria-label="Question bank filters and selection">
+          <div class="bank-heading">
+            <div>
+              <p class="eyebrow">SAT Question Bank</p>
+              <h2>Choose questions</h2>
+            </div>
+            <button id="resetFilters" class="secondary-button" type="button">Reset</button>
+          </div>
+
+          <div class="filter-grid">
+            <label>
+              Section
+              <select id="sectionFilter">
+                <option value="all">All SAT sections</option>
+                <option value="1">Reading and Writing</option>
+                <option value="2">Math</option>
+              </select>
+            </label>
+            <label>
+              Difficulty
+              <select id="difficultyFilter">
+                <option value="all">All difficulty</option>
+                <option value="E">Easy</option>
+                <option value="M">Medium</option>
+                <option value="H">Hard</option>
+              </select>
+            </label>
+            <label>
+              Domain
+              <select id="domainFilter">
+                <option value="all">All domains</option>
+              </select>
+            </label>
+            <label>
+              Skill
+              <select id="skillFilter">
+                <option value="all">All skills</option>
+              </select>
+            </label>
+            <label>
+              Bluebook status
+              <select id="activeFilter">
+                <option value="all">Active and inactive</option>
+                <option value="active">Active in Bluebook</option>
+                <option value="non">Not active in Bluebook</option>
+              </select>
+            </label>
+            <label>
+              Search
+              <input id="searchFilter" type="search" placeholder="Question ID, domain, skill..." />
+            </label>
+          </div>
+
+          <div class="quick-filters" aria-label="Quick filters">
+            <button class="chip" type="button" data-quick-active="non">Not active</button>
+            <button class="chip" type="button" data-quick-active="active">Bluebook active</button>
+            <button class="chip" type="button" data-quick-difficulty="H">Hard</button>
+            <button class="chip" type="button" data-quick-section="1">R&amp;W</button>
+            <button class="chip" type="button" data-quick-section="2">Math</button>
+          </div>
+
+          <div class="bank-stats">
+            <strong id="resultCount">Loading...</strong>
+            <span id="resultSummary">Reading SAT question metadata.</span>
+          </div>
+
+          <div id="questionList" class="question-list" aria-live="polite"></div>
+        </aside>
+
+        <section class="bluebook-viewer" aria-label="Selected SAT question">
+          <div class="viewer-top">
+            <div class="question-number">
+              <span id="questionNumber">-</span>
+            </div>
+            <button id="markButton" class="mark-button" type="button">Mark for Review</button>
+            <div class="viewer-meta" id="viewerMeta">Select a question to begin.</div>
+          </div>
+
+          <div class="test-window">
+            <article class="passage-pane">
+              <div class="pane-content">
+                <p class="pane-label">Passage / context</p>
+                <div id="stimulusContent" class="question-html empty-state">
+                  Use the filters to pick a SAT question. Questions are loaded from the archived College Board data in this repository.
+                </div>
+              </div>
+            </article>
+
+            <article class="question-pane">
+              <div class="pane-content">
+                <p class="pane-label">Question</p>
+                <div id="questionContent" class="question-html"></div>
+                <div id="answerArea" class="answer-area"></div>
+                <div class="action-row">
+                  <button id="checkAnswer" class="primary-button" type="button" disabled>Check answer</button>
+                  <button id="showRationale" class="secondary-button" type="button" disabled>Show explanation</button>
+                </div>
+                <section id="rationaleArea" class="rationale" hidden></section>
+              </div>
+            </article>
+          </div>
+
+          <footer class="bluebook-footer">
+            <button id="previousQuestion" class="footer-button" type="button">Back</button>
+            <div class="footer-pill">
+              <span id="footerQuestion">Question - of -</span>
+            </div>
+            <button id="nextQuestion" class="footer-button primary-footer" type="button">Next</button>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
