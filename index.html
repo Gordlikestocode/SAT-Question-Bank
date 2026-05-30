@@ -9,31 +9,35 @@
   <body>
     <div class="app-shell">
       <header class="bluebook-header">
-        <div class="header-left">
-          <p class="eyebrow">Section 1, Module 2</p>
-          <h1>Reading and Writing</h1>
-          <button class="directions-button" type="button">Directions</button>
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">SAT</div>
+          <div>
+            <p class="eyebrow">Question Bank</p>
+            <h1>Bluebook-style SAT practice</h1>
+          </div>
         </div>
         <div class="timer-block" aria-label="Practice timer">
+          <span>Practice timer</span>
           <strong>5:27</strong>
           <button type="button">Hide</button>
         </div>
         <div class="header-actions" aria-label="Bluebook style actions">
-          <span>Highlights &amp; Notes</span>
-          <span>More</span>
+          <button type="button">Highlights &amp; Notes</button>
+          <button type="button">More</button>
         </div>
       </header>
 
-      <div class="practice-strip">THIS IS A PRACTICE QUESTION BANK</div>
+      <div class="practice-strip">Practice question bank · Bluebook-style preview</div>
 
       <main class="layout">
         <aside class="question-bank" aria-label="Question bank filters and selection">
           <div class="bank-heading">
             <div>
               <p class="eyebrow">SAT Question Bank</p>
-              <h2>Choose questions</h2>
+              <h2>Find a question</h2>
+              <p class="bank-copy">Filter the archived SAT set, then open any item in the practice viewer.</p>
             </div>
-            <button id="resetFilters" class="secondary-button" type="button">Reset</button>
+            <button id="resetFilters" class="secondary-button compact" type="button">Reset</button>
           </div>
 
           <div class="filter-grid">
@@ -74,13 +78,14 @@
                 <option value="non">Not active in Bluebook</option>
               </select>
             </label>
-            <label>
+            <label class="wide-filter">
               Search
               <input id="searchFilter" type="search" placeholder="Question ID, domain, skill..." />
             </label>
           </div>
 
           <div class="quick-filters" aria-label="Quick filters">
+            <span class="quick-label">Quick filters</span>
             <button class="chip" type="button" data-quick-active="non">Not active</button>
             <button class="chip" type="button" data-quick-active="active">Bluebook active</button>
             <button class="chip" type="button" data-quick-difficulty="H">Hard</button>
@@ -101,7 +106,10 @@
             <div class="question-number">
               <span id="questionNumber">-</span>
             </div>
-            <button id="markButton" class="mark-button" type="button">Mark for Review</button>
+            <div>
+              <p class="viewer-kicker">Practice item</p>
+              <button id="markButton" class="mark-button" type="button">Mark for Review</button>
+            </div>
             <div class="viewer-meta" id="viewerMeta">Select a question to begin.</div>
           </div>
 
