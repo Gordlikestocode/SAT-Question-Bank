@@ -513,6 +513,17 @@ button:focus-visible {
   background: #fdeaea;
 }
 
+.answer-note {
+  padding: 12px;
+  color: #5e4b13;
+  background: #fff6d8;
+  border: 1px solid #ead481;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .action-row {
   display: flex;
   flex-wrap: wrap;

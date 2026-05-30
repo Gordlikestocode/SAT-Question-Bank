@@ -332,18 +332,23 @@ function normalizeQuestionPayload(rawPayload, question) {
       label: letter.toUpperCase(),
       content: choice.body || "",
     }));
-    const correct = answer.correct_choice ? [answer.correct_choice.toUpperCase()] : normalizeCorrectAnswers(answer.correct_answer || answer.answer);
+    const rationale = answer.rationale || "";
+    let correct = answer.correct_choice ? [answer.correct_choice.toUpperCase()] : normalizeCorrectAnswers(answer.correct_answer || answer.answer);
+    if (!correct.length) correct = deriveCorrectFromRationale(rationale);
     return {
       type: String(answer.style || "Multiple Choice").toLowerCase().includes("spr") ? "spr" : "mcq",
-      stimulus: item.stimulus || "",
+      stimulus: item.stimulus || item.body || "",
       stem: item.prompt || "",
       options,
       correct,
-      rationale: answer.rationale || "",
+      rationale,
       sourceLabel: question.ibn || item.item_id || question.fileId,
     };
   }
 
+  const rationale = rawPayload.rationale || "";
+  let correct = normalizeCorrectAnswers(rawPayload.correct_answer || rawPayload.keys);
+  if (!correct.length) correct = deriveCorrectFromRationale(rationale);
   const options = (rawPayload.answerOptions || []).map((option, index) => ({
     id: option.id,
     label: String.fromCharCode(65 + index),
@@ -354,8 +359,8 @@ function normalizeQuestionPayload(rawPayload, question) {
     stimulus: rawPayload.stimulus || "",
     stem: rawPayload.stem || "",
     options,
-    correct: normalizeCorrectAnswers(rawPayload.correct_answer || rawPayload.keys),
-    rationale: rawPayload.rationale || "",
+    correct,
+    rationale,
     sourceLabel: rawPayload.externalid || question.externalId || question.fileId,
   };
 }
@@ -364,6 +369,12 @@ function normalizeCorrectAnswers(value) {
   if (Array.isArray(value)) return value.map((item) => String(item).toUpperCase());
   if (value === undefined || value === null) return [];
   return [String(value).toUpperCase()];
+}
+
+function deriveCorrectFromRationale(rationale) {
+  const text = String(rationale || "").replace(/<[^>]+>/g, " ");
+  const match = text.match(/\bChoice\s+([A-D])\s+is\s+correct\b/i);
+  return match ? [match[1].toUpperCase()] : [];
 }
 
 function renderLoadingViewer(question) {
@@ -419,7 +430,7 @@ function renderQuestionViewer() {
   renderAnswers(payload);
   elements.rationaleArea.hidden = true;
   elements.rationaleArea.innerHTML = "";
-  elements.checkAnswer.disabled = false;
+  elements.checkAnswer.disabled = !payload.correct.length;
   elements.showRationale.disabled = !payload.rationale;
   updateFooter();
 }
@@ -442,6 +453,7 @@ function renderAnswers(payload) {
     wrapper.querySelector("input").addEventListener("input", (event) => {
       state.selectedAnswer = event.target.value.trim();
     });
+    renderAnswerKeyNote(payload);
     return;
   }
 
@@ -466,6 +478,15 @@ function renderAnswers(payload) {
     fragment.append(button);
   });
   elements.answerArea.append(fragment);
+  renderAnswerKeyNote(payload);
+}
+
+function renderAnswerKeyNote(payload) {
+  if (payload.correct.length) return;
+  const note = document.createElement("div");
+  note.className = "answer-note";
+  note.textContent = "This archived item does not include a machine-readable answer key. Use the explanation to verify your answer.";
+  elements.answerArea.append(note);
 }
 
 function checkSelectedAnswer() {
