@@ -1,0 +1,31 @@
+{
+  "type": "mcq",
+  "stem": "<p>Which choice best states the main idea of the text?</p>",
+  "stimulus": "<p>When Kenyan writer Ngũgĩ wa Thiong&rsquo;o, who had previously published four novels in English, began writing in his native language, Gĩkũyũ, in the 1970s, several fellow writers and critics cautioned that doing so might make his works inaccessible outside his own community. Some noted that Kiswahili&mdash;widely spoken in Kenya and elsewhere in Africa&mdash;would be a more practical choice. Rejecting their arguments, Ngũgĩ went on to author dozens of acclaimed works in Gĩkũyũ that have been translated into a total of more than thirty languages.</p>",
+  "keys": [
+    "c3ffdf6f-326b-41c9-a0b1-72d3c23d23be"
+  ],
+  "answerOptions": [
+    {
+      "id": "5083f78a-6858-4763-a0fe-158b8ae73354",
+      "content": "<p>The reaction to Ngũgĩ&rsquo;s rejection of English illustrates that some literary experts believe that fame is most easily gained by writing in a widely understood language, such as Gĩkũyũ.</p>"
+    },
+    {
+      "id": "ae11b317-deaa-42c0-93e2-c6515cf5390d",
+      "content": "<p>Although Ngũgĩ insisted on publishing his first works in Gĩkũyũ, they have since been translated into many other languages.</p>"
+    },
+    {
+      "id": "c3ffdf6f-326b-41c9-a0b1-72d3c23d23be",
+      "content": "<p>Although Ngũgĩ&rsquo;s decision to write in Gĩkũyũ was met with some skepticism, it didn&rsquo;t prevent him from achieving literary success.</p>"
+    },
+    {
+      "id": "b71f3697-a453-4b69-bb6c-cdcce870dd7e",
+      "content": "<p>In the 1970s, Ngũgĩ became convinced that literature ought to be written in authors&rsquo; native languages, and he proceeded to publish many works in Gĩkũyũ.</p>"
+    }
+  ],
+  "rationale": "<p>Choice C is the best answer because it most accurately states the main idea of the text. The text begins by explaining that Kenyan writer Ngũgĩ wa Thiong&rsquo;o had published four novels in English before he began writing in his native language, Gĩkũyũ, in the 1970s. The text then explains that fellow writers and critics were skeptical of this decision, warning that the choice to publish in his native language, which the text implies isn&rsquo;t widely understood, would limit his readership. The text concludes by stating that despite those warnings, Ngũgĩ proceeded to publish several acclaimed novels in Gĩkũyũ that were translated into several languages, suggesting that Ngũgĩ&rsquo;s works in Gĩkũyũ achieved literary success in the forms of critical recognition and a wide international readership. Thus, the main idea is that although Ngũgĩ&rsquo;s decision to write in Gĩkũyũ was met with some skepticism, this choice didn&rsquo;t prevent him from achieving literary success.</p><p>Choice A is incorrect because it contradicts the description of Gĩkũyũ provided in the text. Rather than indicating that Gĩkũyũ is a widely understood language, as this choice claims, the text states that colleagues cautioned Ngũgĩ that writing in Gĩkũyũ instead of English &ldquo;might make his works inaccessible outside his own community.&rdquo; Furthermore, the text contrasts the choice of Gĩkũyũ with another alternative to English, Kiswahili, which the text indicates is &ldquo;a more practical choice&rdquo; given that it is &ldquo;widely spoken in Kenya and elsewhere in Africa.&rdquo; Choice B is incorrect because it contradicts information in the text. Although the text states that the novels Ngũgĩ published in Gĩkũyũ were later translated into other languages, the text explicitly states that Ngũgĩ had previously published four novels in English before he began writing in Gĩkũyũ in the 1970s. Thus, his first works were published in English, not Gĩkũyũ. Choice D is incorrect. The text doesn&rsquo;t address what motivated Ngũgĩ&rsquo;s choice to publish in his native Gĩkũyũ, and nothing in the text suggests that he intended for other authors to follow his example.</p>",
+  "externalid": "186b2a9e-0ace-47a7-b2d5-4db88f390327",
+  "correct_answer": [
+    "C"
+  ]
+}
